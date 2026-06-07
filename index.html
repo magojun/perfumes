@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil Olfativo · Perfumes que le encantan</title>
+<style>
+  :root{
+    --bg:#1a1014; --panel:#241419; --panel2:#2e1a21; --rose:#d98a9e; --rose-d:#b5677c;
+    --gold:#d8b06a; --cream:#f3e6e2; --text:#f3e6e2; --muted:#bda0a4; --line:#3d2730;
+    --good:#7bbf8a; --mid:#d8b06a; --low:#c47b7b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',-apple-system,sans-serif;background:linear-gradient(160deg,#1a1014,#241016);color:var(--text);line-height:1.5;padding:0 0 60px}
+  header{text-align:center;padding:42px 20px 30px;background:radial-gradient(ellipse at top,#3a1c26,transparent 70%)}
+  header h1{font-size:30px;font-weight:600;letter-spacing:.5px}
+  header h1 .gold{color:var(--gold)}
+  header p{color:var(--muted);margin-top:8px;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  section{margin-top:38px}
+  h2{font-size:20px;color:var(--rose);margin-bottom:6px;font-weight:600;display:flex;align-items:center;gap:9px}
+  h2 .n{background:var(--rose-d);color:#fff;width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto}
+  .sub{color:var(--muted);font-size:13.5px;margin-bottom:16px;margin-left:35px}
+  .dna{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .barrow{display:flex;align-items:center;gap:14px;margin:11px 0}
+  .barrow .lbl{width:160px;flex:0 0 auto;font-size:14px;color:var(--cream)}
+  .bartrack{flex:1;background:#3a2530;border-radius:8px;height:16px;overflow:hidden}
+  .barfill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--rose-d),var(--rose))}
+  .barrow .pct{width:42px;text-align:right;font-size:13px;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:var(--panel2);border:1px solid var(--line);padding:6px 12px;border-radius:20px;font-size:13px;color:var(--cream)}
+  .chip.key{border-color:var(--gold);color:var(--gold)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px;transition:.2s}
+  .card:hover{border-color:var(--rose-d);transform:translateY(-2px)}
+  .card h3{font-size:15px;color:var(--cream);margin-bottom:3px}
+  .card .fam{font-size:11.5px;color:var(--gold);text-transform:uppercase;letter-spacing:.7px;margin-bottom:9px}
+  .notes{font-size:12.5px;color:var(--muted)}
+  .notes b{color:var(--rose)}
+  .rec{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px;display:flex;flex-direction:column;gap:7px}
+  .rec:hover{border-color:var(--gold)}
+  .rec .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .rec h3{font-size:15px;color:var(--cream)}
+  .rec .brand{font-size:12px;color:var(--muted)}
+  .badge{font-size:11px;padding:3px 9px;border-radius:12px;font-weight:600;flex:0 0 auto}
+  .badge.nicho{background:#3a2a45;color:#cdaef0;border:1px solid #6b4d8a}
+  .badge.disen{background:#3a2530;color:var(--rose);border:1px solid var(--rose-d)}
+  .match{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+  .matchbar{flex:1;height:7px;background:#3a2530;border-radius:5px;overflow:hidden}
+  .matchfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c98a)}
+  .why{font-size:12.5px;color:var(--muted)}
+  .why b{color:var(--rose)}
+  .evalbox{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .evalgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+  @media(max-width:680px){.evalgrid{grid-template-columns:1fr}.barrow .lbl{width:110px}}
+  .ck{display:flex;align-items:center;gap:9px;padding:7px 0;font-size:13.5px;cursor:pointer;border-bottom:1px solid #2e1d24}
+  .ck input{width:17px;height:17px;accent-color:var(--rose-d);cursor:pointer}
+  .ck .w{margin-left:auto;font-size:11px;color:var(--muted)}
+  .scorepanel{margin-top:20px;text-align:center;padding:22px;border-radius:13px;background:var(--panel2);border:1px solid var(--line)}
+  .scoreNum{font-size:54px;font-weight:700;line-height:1}
+  .verdict{font-size:17px;margin-top:6px;font-weight:600}
+  .scorehint{font-size:13px;color:var(--muted);margin-top:8px}
+  .reset{margin-top:14px;background:transparent;border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:8px;cursor:pointer;font-size:13px}
+  .reset:hover{border-color:var(--rose-d);color:var(--rose)}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:46px;padding:0 20px}
+  footer a{color:var(--rose)}
+  .tip{font-size:12.5px;color:var(--muted);background:var(--panel2);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin-top:14px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Perfil Olfativo <span class="gold">·</span> Lo que le encanta</h1>
+  <p>Análisis de 7 perfumes favoritos · perfil, recomendaciones y evaluador de candidatos</p>
+</header>
+<div class="wrap">
+
+  <section>
+    <h2><span class="n">1</span>El ADN de su gusto</h2>
+    <p class="sub">Qué tan presente está cada familia olfativa en sus 7 favoritos.</p>
+    <div class="dna">
+      <div class="barrow"><span class="lbl">Floral dulce / blanco</span><div class="bartrack"><div class="barfill" style="width:95%"></div></div><span class="pct">95%</span></div>
+      <div class="barrow"><span class="lbl">Gourmand (vainilla, praliné)</span><div class="bartrack"><div class="barfill" style="width:80%"></div></div><span class="pct">80%</span></div>
+      <div class="barrow"><span class="lbl">Frutal (frutos rojos, manzana)</span><div class="bartrack"><div class="barfill" style="width:65%"></div></div><span class="pct">65%</span></div>
+      <div class="barrow"><span class="lbl">Ámbar / cálido</span><div class="bartrack"><div class="barfill" style="width:60%"></div></div><span class="pct">60%</span></div>
+      <div class="barrow"><span class="lbl">Chypre / pachulí</span><div class="bartrack"><div class="barfill" style="width:50%"></div></div><span class="pct">50%</span></div>
+      <div class="barrow"><span class="lbl">Maderas suaves</span><div class="bartrack"><div class="barfill" style="width:45%"></div></div><span class="pct">45%</span></div>
+      <div class="chips">
+        <span class="chip key">Jazmín</span>
+        <span class="chip key">Vainilla</span>
+        <span class="chip key">Azahar / flor de naranjo</span>
+        <span class="chip key">Pachulí</span>
+        <span class="chip">Frutos rojos</span>
+        <span class="chip">Praliné</span>
+        <span class="chip">Rosa</span>
+        <span class="chip">Sándalo</span>
+        <span class="chip">Haba tonka</span>
+        <span class="chip">Almizcle</span>
+      </div>
+      <div class="tip"><b>En una frase:</b> le gustan perfumes <b>femeninos, dulces y florales con fondo cálido y goloso</b> — flores blancas envueltas en vainilla y pachulí. Sofisticados pero acogedores, ideales para uso diario y noche. No le van los amaderados secos, los acuáticos fríos ni los cítricos puros.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Sus 7 favoritos, decodificados</h2>
+    <p class="sub">La base del análisis. Las notas en <b style="color:var(--rose)">rosa</b> son las recurrentes.</p>
+    <div class="grid" id="baseGrid"></div>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>Para probar — alta afinidad</h2>
+    <p class="sub">Ordenados por afinidad con su perfil. Incluye diseñador y nicho.</p>
+    <div class="grid" id="recGrid"></div>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>Evaluador de candidatos</h2>
+    <p class="sub">¿Viste un perfume nuevo? Mirá sus notas (Fragrantica/Sephora) y marcá las que tenga. Te dice si vale la pena.</p>
+    <div class="evalbox">
+      <div class="evalgrid" id="evalGrid"></div>
+      <div class="scorepanel">
+        <div class="scoreNum" id="scoreNum" style="color:var(--muted)">0</div>
+        <div class="verdict" id="verdict" style="color:var(--muted)">Marcá las notas del candidato</div>
+        <div class="scorehint" id="scorehint">Cada nota suma según cuánto define su gusto.</div>
+        <button class="reset" onclick="resetEval()">Limpiar</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Perfil construido a partir de pirámides olfativas de Fragrantica. Las notas pueden variar entre EDT/EDP y lotes.<br>
+    Fuente principal: <a href="https://www.fragrantica.com">Fragrantica</a>.
+  </footer>
+</div>
+
+<script>
+const base = [
+  {n:"Miss Dior", b:"Dior · EDP", fam:"Floral / Chypre", notes:["Mandarina","<b>Rosa de Grasse</b>","Lirio del valle","<b>Pachulí</b>","Almizcle"]},
+  {n:"Coco Mademoiselle", b:"Chanel · EDP", fam:"Floral / Chypre ámbar", notes:["Naranja","<b>Rosa</b>","<b>Jazmín</b>","<b>Pachulí</b>","Vetiver","<b>Vainilla</b>","Haba tonka"]},
+  {n:"La Vie Est Belle", b:"Lancôme · EDP", fam:"Floral gourmand", notes:["Grosella negra","Pera","Iris","<b>Jazmín</b>","<b>Praliné</b>","<b>Vainilla</b>","<b>Pachulí</b>","Haba tonka"]},
+  {n:"CH", b:"Carolina Herrera · EDT", fam:"Chypre frutal", notes:["Bergamota","Pomelo","<b>Jazmín</b>","<b>Rosa</b>","Ámbar","<b>Sándalo</b>","Cuero","Praliné"]},
+  {n:"Éclat de Nuit", b:"Lanvin · EDP", fam:"Floral frutal oriental", notes:["<b>Grosella negra</b>","Manzana roja","<b>Azahar</b>","<b>Jazmín</b>","Fresia","<b>Praliné</b>","<b>Vainilla</b>","<b>Sándalo</b>"]},
+  {n:"Mon Paris", b:"YSL · EDP", fam:"Floral frutal chypre", notes:["<b>Frutos rojos</b>","Frambuesa","<b>Jazmín</b>","Peonía","<b>Pachulí</b>","Ámbar blanco","Almizcle"]},
+  {n:"La Bomba", b:"Carolina Herrera · EDP", fam:"Floral oriental", notes:["Fruta del dragón","Frangipani","Peonía roja","<b>Vainilla</b>","<b>Pachulí</b>"]},
+];
+
+const recs = [
+  {n:"Good Girl", b:"Carolina Herrera", t:"disen", m:93, why:"<b>Vainilla, haba tonka y jazmín</b> sobre cacao y almendra. Es prácticamente el centro de su gusto: gourmand floral cálido. Match casi seguro."},
+  {n:"Black Opium", b:"YSL", t:"disen", m:90, why:"<b>Café, vainilla y flor de naranjo</b>. Dulce, goloso y nocturno — misma energía que Éclat de Nuit y La Vie Est Belle."},
+  {n:"La Vie Est Belle Intensément", b:"Lancôme", t:"disen", m:92, why:"Versión más profunda de uno que ya ama: <b>iris, praliné y vainilla</b> intensificados. Apuesta segura."},
+  {n:"Libre", b:"YSL", t:"disen", m:88, why:"<b>Azahar, lavanda y vainilla</b>. Floral cálido con firma similar a Mon Paris (misma casa, mismo carácter)."},
+  {n:"Mon Guerlain", b:"Guerlain", t:"disen", m:87, why:"<b>Lavanda, jazmín, vainilla y sándalo</b>. Floral-gourmand sofisticado, muy en línea con Coco Mademoiselle."},
+  {n:"Idôle", b:"Lancôme", t:"disen", m:85, why:"<b>Rosa, jazmín y almizcle</b> limpios con fondo de vainilla. Más fresco/luminoso pero dentro del eje floral dulce."},
+  {n:"Born in Roma Donna", b:"Valentino", t:"disen", m:84, why:"<b>Grosella negra, jazmín y vainilla bourbon</b>. Floral frutal con fondo goloso, eco de Éclat de Nuit."},
+  {n:"Gabrielle", b:"Chanel", t:"disen", m:82, why:"Ramo de <b>flores blancas</b> (jazmín, azahar, ylang). Más floral y menos dulce — buen salto sofisticado desde Coco Mademoiselle."},
+  {n:"Delina", b:"Parfums de Marly (nicho)", t:"nicho", m:91, why:"<b>Rosa, lichi, peonía y vainilla</b>. Floral frutal femenino, refinado — uno de los nicho con más afinidad a su perfil."},
+  {n:"Angels' Share", b:"Kilian (nicho)", t:"nicho", m:89, why:"<b>Coñac, vainilla, canela y haba tonka</b>. Gourmand cálido de lujo — para quien ama el fondo goloso de La Vie Est Belle."},
+  {n:"Lost Cherry", b:"Tom Ford (nicho)", t:"nicho", m:83, why:"<b>Cereza, almendra amarga y tonka</b>. Dulce y goloso, atrevido — afín al eje gourmand frutal."},
+  {n:"Carnal Flower", b:"Frederic Malle (nicho)", t:"nicho", m:78, why:"<b>Nardo y flores blancas</b> en máxima expresión. Para explorar el lado floral blanco con calidad de autor."},
+  {n:"Oud for Greatness", b:"Initio (nicho)", t:"nicho", m:70, why:"Más especiado/amaderado, pero con dulzor cálido. Puerta de entrada al nicho si quiere algo con más cuerpo."},
+];
+
+const attrs = [
+  {k:"Jazmín u otra flor blanca (azahar, nardo)", w:18},
+  {k:"Vainilla", w:16},
+  {k:"Pachulí", w:14},
+  {k:"Praliné / almendra / caramelo (gourmand)", w:13},
+  {k:"Rosa", w:10},
+  {k:"Frutos rojos / grosella / frambuesa", w:9},
+  {k:"Haba tonka / ámbar cálido", w:8},
+  {k:"Sándalo / madera suave", w:6},
+  {k:"Almizcle limpio", w:4},
+  {k:"Cítrico ligero de salida", w:2},
+  {k:"⚠️ Acuático / marino / fresco frío", w:-15},
+  {k:"⚠️ Amaderado seco / vetiver dominante", w:-12},
+  {k:"⚠️ Cuero o tabaco fuerte dominante", w:-8},
+];
+
+const baseGrid=document.getElementById('baseGrid');
+base.forEach(p=>{
+  baseGrid.insertAdjacentHTML('beforeend',
+   `<div class="card"><h3>${p.n}</h3><div class="fam">${p.fam}</div>
+    <div class="brand" style="font-size:11.5px;color:var(--muted);margin-bottom:7px">${p.b}</div>
+    <div class="notes">${p.notes.join(" · ")}</div></div>`);
+});
+
+const recGrid=document.getElementById('recGrid');
+recs.sort((a,b)=>b.m-a.m).forEach(r=>{
+  const badge = r.t==='nicho'?'<span class="badge nicho">Nicho</span>':'<span class="badge disen">Diseñador</span>';
+  recGrid.insertAdjacentHTML('beforeend',
+   `<div class="rec"><div class="top"><div><h3>${r.n}</h3><div class="brand">${r.b}</div></div>${badge}</div>
+    <div class="match"><span>${r.m}%</span><div class="matchbar"><div class="matchfill" style="width:${r.m}%"></div></div></div>
+    <div class="why">${r.why}</div></div>`);
+});
+
+const evalGrid=document.getElementById('evalGrid');
+attrs.forEach(a=>{
+  const sign = a.w<0 ? '' : '+';
+  evalGrid.insertAdjacentHTML('beforeend',
+   `<label class="ck"><input type="checkbox" data-w="${a.w}" onchange="calc()">
+     <span>${a.k}</span><span class="w">${sign}${a.w}</span></label>`);
+});
+
+const maxPos = attrs.filter(a=>a.w>0).reduce((s,a)=>s+a.w,0);
+function calc(){
+  let raw=0;
+  document.querySelectorAll('#evalGrid input:checked').forEach(c=>raw+=parseInt(c.dataset.w));
+  let score=Math.max(0,Math.round(raw/maxPos*100));
+  if(score>100)score=100;
+  const num=document.getElementById('scoreNum'),v=document.getElementById('verdict'),h=document.getElementById('scorehint');
+  num.textContent=score;
+  let col,txt,hint;
+  if(score>=70){col='var(--good)';txt='¡Muy probable que le encante!';hint='Fuerte coincidencia con su perfil. Vale la pena comprarlo o pedir muestra.';}
+  else if(score>=45){col='var(--mid)';txt='Posible — probar primero';hint='Tiene varios aciertos. Que lo pruebe en piel antes de decidir.';}
+  else if(score>0){col='var(--low)';txt='Riesgo — probablemente no';hint='Comparte poco con su gusto. Solo si quiere explorar algo distinto.';}
+  else{col='var(--muted)';txt='Marcá las notas del candidato';hint='Cada nota suma según cuánto define su gusto.';}
+  num.style.color=col;v.style.color=col;v.textContent=txt;h.textContent=hint;
+}
+function resetEval(){document.querySelectorAll('#evalGrid input').forEach(c=>c.checked=false);calc();}
+</script>
+</body>
+</html>
