@@ -70,13 +70,13 @@
 <body>
 <header>
   <h1>Perfil Olfativo <span class="gold">·</span> Lo que le encanta</h1>
-  <p>Análisis de 7 perfumes favoritos · perfil, recomendaciones y evaluador de candidatos</p>
+  <p>Análisis de 6 perfumes favoritos · perfil, recomendaciones y evaluador de candidatos</p>
 </header>
 <div class="wrap">
 
   <section>
     <h2><span class="n">1</span>El ADN de su gusto</h2>
-    <p class="sub">Qué tan presente está cada familia olfativa en sus 7 favoritos.</p>
+    <p class="sub">Qué tan presente está cada familia olfativa en sus 6 favoritos.</p>
     <div class="dna">
       <div class="barrow"><span class="lbl">Floral dulce / blanco</span><div class="bartrack"><div class="barfill" style="width:95%"></div></div><span class="pct">95%</span></div>
       <div class="barrow"><span class="lbl">Gourmand (vainilla, praliné)</span><div class="bartrack"><div class="barfill" style="width:80%"></div></div><span class="pct">80%</span></div>
@@ -96,12 +96,12 @@
         <span class="chip">Haba tonka</span>
         <span class="chip">Almizcle</span>
       </div>
-      <div class="tip"><b>En una frase:</b> le gustan perfumes <b>femeninos, dulces y florales con fondo cálido y goloso</b> — flores blancas envueltas en vainilla y pachulí. Sofisticados pero acogedores, ideales para uso diario y noche. No le van los amaderados secos, los acuáticos fríos ni los cítricos puros.</div>
+      <div class="tip"><b>En una frase:</b> le gustan perfumes <b>femeninos, dulces y florales con fondo cálido y goloso</b> — flores blancas envueltas en vainilla y pachulí. Sofisticados pero acogedores, ideales para uso diario y noche. No le van los amaderados secos, los acuáticos fríos, los cítricos puros ni los florales tropicales pesados (tipo frangipani — probó La Bomba de CH y no le gustó).</div>
     </div>
   </section>
 
   <section>
-    <h2><span class="n">2</span>Sus 7 favoritos, decodificados</h2>
+    <h2><span class="n">2</span>Sus 6 favoritos, decodificados</h2>
     <p class="sub">La base del análisis. Las notas en <b style="color:var(--rose)">rosa</b> son las recurrentes.</p>
     <div class="grid" id="baseGrid"></div>
   </section>
@@ -140,11 +140,11 @@ const base = [
   {n:"CH", b:"Carolina Herrera · EDT", fam:"Chypre frutal", notes:["Bergamota","Pomelo","<b>Jazmín</b>","<b>Rosa</b>","Ámbar","<b>Sándalo</b>","Cuero","Praliné"]},
   {n:"Éclat de Nuit", b:"Lanvin · EDP", fam:"Floral frutal oriental", notes:["<b>Grosella negra</b>","Manzana roja","<b>Azahar</b>","<b>Jazmín</b>","Fresia","<b>Praliné</b>","<b>Vainilla</b>","<b>Sándalo</b>"]},
   {n:"Mon Paris", b:"YSL · EDP", fam:"Floral frutal chypre", notes:["<b>Frutos rojos</b>","Frambuesa","<b>Jazmín</b>","Peonía","<b>Pachulí</b>","Ámbar blanco","Almizcle"]},
-  {n:"La Bomba", b:"Carolina Herrera · EDP", fam:"Floral oriental", notes:["Fruta del dragón","Frangipani","Peonía roja","<b>Vainilla</b>","<b>Pachulí</b>"]},
 ];
 
 const recs = [
-  {n:"Good Girl", b:"Carolina Herrera", t:"disen", m:93, why:"<b>Vainilla, haba tonka y jazmín</b> sobre cacao y almendra. Es prácticamente el centro de su gusto: gourmand floral cálido. Match casi seguro."},
+  {n:"Oriana ★", b:"Parfums de Marly (nicho)", t:"nicho", m:91, why:"<b>Chantilly, marshmallow, praliné y vainilla</b> con azahar y frutos rojos. Es el \"chantilly con cereza\" que pidió Adri. <b>Su elección probable.</b> Probar con decant/30ml antes del frasco grande."},
+  {n:"Good Girl", b:"Carolina Herrera", t:"disen", m:93, why:"<b>Vainilla, haba tonka y jazmín</b> sobre cacao y almendra. Es prácticamente el centro de su gusto: gourmand floral cálido. El más chocolatoso fácil de conseguir. Match casi seguro."},
   {n:"Black Opium", b:"YSL", t:"disen", m:90, why:"<b>Café, vainilla y flor de naranjo</b>. Dulce, goloso y nocturno — misma energía que Éclat de Nuit y La Vie Est Belle."},
   {n:"La Vie Est Belle Intensément", b:"Lancôme", t:"disen", m:92, why:"Versión más profunda de uno que ya ama: <b>iris, praliné y vainilla</b> intensificados. Apuesta segura."},
   {n:"Libre", b:"YSL", t:"disen", m:88, why:"<b>Azahar, lavanda y vainilla</b>. Floral cálido con firma similar a Mon Paris (misma casa, mismo carácter)."},
@@ -154,7 +154,9 @@ const recs = [
   {n:"Gabrielle", b:"Chanel", t:"disen", m:82, why:"Ramo de <b>flores blancas</b> (jazmín, azahar, ylang). Más floral y menos dulce — buen salto sofisticado desde Coco Mademoiselle."},
   {n:"Delina", b:"Parfums de Marly (nicho)", t:"nicho", m:91, why:"<b>Rosa, lichi, peonía y vainilla</b>. Floral frutal femenino, refinado — uno de los nicho con más afinidad a su perfil."},
   {n:"Angels' Share", b:"Kilian (nicho)", t:"nicho", m:89, why:"<b>Coñac, vainilla, canela y haba tonka</b>. Gourmand cálido de lujo — para quien ama el fondo goloso de La Vie Est Belle."},
-  {n:"Lost Cherry", b:"Tom Ford (nicho)", t:"nicho", m:83, why:"<b>Cereza, almendra amarga y tonka</b>. Dulce y goloso, atrevido — afín al eje gourmand frutal."},
+  {n:"Lost Cherry", b:"Tom Ford (nicho)", t:"nicho", m:86, why:"<b>Cereza, almendra amarga y tonka</b> cremoso. El referente de \"cereza golosa\". Sube con el pedido de dulce/cereza de Adri."},
+  {n:"Cerise Sur Le Gâteau", b:"Versatile Paris (nicho)", t:"nicho", m:82, why:"<b>Almendra, cereza, torta, chocolate y crema batida</b> (2025). Un postre embotellado — directo al pedido dulce/chocolatoso."},
+  {n:"Whipped Cherry", b:"Clean Reserve", t:"disen", m:80, why:"<b>Cereza, almendra, praliné y crema de vainilla</b>. \"Cerezas con crema batida\", más liviano y económico — buena opción para probar el estilo."},
   {n:"Carnal Flower", b:"Frederic Malle (nicho)", t:"nicho", m:78, why:"<b>Nardo y flores blancas</b> en máxima expresión. Para explorar el lado floral blanco con calidad de autor."},
   {n:"Oud for Greatness", b:"Initio (nicho)", t:"nicho", m:70, why:"Más especiado/amaderado, pero con dulzor cálido. Puerta de entrada al nicho si quiere algo con más cuerpo."},
 ];
@@ -171,6 +173,7 @@ const attrs = [
   {k:"Almizcle limpio", w:4},
   {k:"Cítrico ligero de salida", w:2},
   {k:"⚠️ Acuático / marino / fresco frío", w:-15},
+  {k:"⚠️ Floral tropical (frangipani, tiaré, fruta del dragón)", w:-12},
   {k:"⚠️ Amaderado seco / vetiver dominante", w:-12},
   {k:"⚠️ Cuero o tabaco fuerte dominante", w:-8},
 ];
